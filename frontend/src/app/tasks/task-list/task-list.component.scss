@@ -1,0 +1,125 @@
+// Styling for the task page
+
+$bosch-red: #e60000;
+$bosch-green: #006a4d;
+$bosch-dark-gray: #333333;
+$bosch-light-gray: #f5f5f5;
+
+.tasks-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+
+  background: linear-gradient(
+    135deg,
+    $bosch-dark-gray 0%,
+    #000 35%,
+    $bosch-green 100%
+  );
+}
+
+.external-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.tasks-title {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: $bosch-red;
+}
+
+.tasks-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 1.75rem;
+  background-color: $bosch-light-gray;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $bosch-dark-gray;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.create-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.task-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-title {
+  font-weight: 600;
+  &.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+}
+
+.task-description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.no-tasks {
+  text-align: center;
+  padding: 1.5rem 0;
+  color: #666;
+}
+
+.loading {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.add-task-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .tasks-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .add-task-bottom {
+    justify-content: center;
+  }
+}

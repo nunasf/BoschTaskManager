@@ -1,0 +1,74 @@
+<div class="login-wrapper">
+
+  <!-- Main title -->
+  <div class="external-title">
+    <h1 class="login-title">Bosch Task Manager</h1>
+    <p class="login-subtitle">Sign in to manage your tasks</p>
+  </div>
+
+  <mat-card class="login-card">
+    <!-- Login form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <!-- Email field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="you@example.com"
+        />
+        <mat-error
+          *ngIf="f['email'].hasError('required') && f['email'].touched"
+        >
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="f['email'].hasError('email') && f['email'].touched">
+          Please enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="••••••••"
+        />
+        <mat-error
+          *ngIf="f['password'].hasError('required') && f['password'].touched"
+        >
+          Password is required
+        </mat-error>
+        <mat-error
+          *ngIf="f['password'].hasError('minlength') && f['password'].touched"
+        >
+          Password must be at least 6 characters
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="loginForm.invalid || isSubmitting"
+        >
+          {{ isSubmitting ? 'Signing in...' : 'Login' }}
+        </button>
+      </div>
+    </form>
+
+    <!-- Link to registration -->
+    <div class="register-link">
+      <span>Don’t have an account?</span>
+      <button mat-button type="button" (click)="goToRegister()">
+        Create account
+      </button>
+    </div>
+  </mat-card>
+</div>

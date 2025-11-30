@@ -1,0 +1,75 @@
+// Styling for the login page
+
+$bosch-green: #006a4d;
+$bosch-red: #e60000;
+$bosch-dark-gray: #333333;
+$bosch-light-gray: #f5f5f5;
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    $bosch-dark-gray 0%,
+    #000 35%,
+    $bosch-green 100%
+  );
+}
+
+.external-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  .login-title {
+    color: $bosch-red;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .login-subtitle {
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+    color: white;
+    opacity: 0.9;
+  }
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 1.5rem 2rem;
+  background-color: $bosch-light-gray;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.register-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+
+  span{
+        margin-right: 0.95rem;
+    }
+
+  button {
+    color: $bosch-red;
+    font-weight: 500;
+    padding: 0;
+    min-width: unset;
+  }
+}

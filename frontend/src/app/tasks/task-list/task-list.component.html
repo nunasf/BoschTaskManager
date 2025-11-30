@@ -1,0 +1,150 @@
+<div class="tasks-wrapper">
+
+  <!-- Main title -->
+  <div class="external-title">
+    <h1 class="tasks-title">My Tasks</h1>
+  </div>
+
+  <mat-card class="tasks-card">
+
+    <!-- Header -->
+    <div class="tasks-header">
+
+      <!-- Welcome  -->
+      <div class="welcome-text">
+        <span *ngIf="username; else genericWelcome">
+          <strong>Welcome, {{ username }}</strong>
+        </span>
+        <ng-template #genericWelcome>
+          <strong>Welcome</strong>
+        </ng-template>
+      </div>
+
+      <!-- Logout  -->
+      <button mat-raised-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </div>
+
+    <!-- Create mode -->
+    <div *ngIf="isCreateMode; else notCreating" class="create-task-form">
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="newTaskTitle" placeholder="Task title" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput rows="3"
+          [(ngModel)]="newTaskDescription"
+          placeholder="Task description (optional)"
+        ></textarea>
+      </mat-form-field>
+
+      <div class="create-actions">
+        <button mat-stroked-button color="warn" (click)="cancelEdit()" [disabled]="isCreating">
+          Cancel
+        </button>
+
+        <button mat-raised-button color="primary" (click)="createTask()" [disabled]="isCreating">
+          <mat-icon>check</mat-icon>
+          Save Task
+        </button>
+      </div>
+    </div>
+
+    <!-- Normal mode -->
+    <ng-template #notCreating>
+
+      <!-- Edit mode -->
+      <div *ngIf="editingTaskId; else listTemplate" class="create-task-form">
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput [(ngModel)]="editTitle" placeholder="Task title" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput rows="3"
+            [(ngModel)]="editDescription"
+            placeholder="Task description"
+          ></textarea>
+        </mat-form-field>
+
+        <div class="create-actions">
+          <button mat-stroked-button color="warn" (click)="cancelEdit()" [disabled]="isSavingEdit">
+            Cancel
+          </button>
+
+          <button mat-raised-button color="primary" (click)="saveEdit(editingTaskId!)" [disabled]="isSavingEdit">
+            <mat-icon>check</mat-icon>
+            Save changes
+          </button>
+        </div>
+      </div>
+
+      <!-- List view -->
+      <ng-template #listTemplate>
+
+        <div *ngIf="isLoading" class="loading">
+          <mat-spinner diameter="40"></mat-spinner>
+          <p>Loading tasks...</p>
+        </div>
+
+        <mat-list *ngIf="!isLoading && tasks.length > 0; else emptyState">
+          <mat-list-item *ngFor="let task of tasks">
+            <div class="task-row">
+              <mat-checkbox
+                disableRipple
+                [checked]="task.completed"
+                (change)="onToggleCompleted(task.id, $event)"
+              ></mat-checkbox>
+
+              <div class="task-content">
+                <div class="task-title" [class.completed]="task.completed">
+                  {{ task.title }}
+                </div>
+                <div class="task-description">
+                  {{ task.description }}
+                </div>
+              </div>
+
+              <!-- Edit -->
+              <button mat-icon-button color="primary" (click)="startEdit(task)">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <!-- Delete -->
+              <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </mat-list-item>
+        </mat-list>
+
+        <!-- Empty state -->
+        <ng-template #emptyState>
+          <div class="no-tasks">
+            <p>No tasks yet.</p>
+            <p>Add your first task to get started.</p>
+          </div>
+        </ng-template>
+
+        <!-- Task button -->
+        <div class="add-task-bottom">
+          <button mat-raised-button color="primary" (click)="addTask()">
+            <mat-icon>add</mat-icon>
+            Add Task
+          </button>
+        </div>
+
+      </ng-template>
+    </ng-template>
+
+  </mat-card>
+</div>
