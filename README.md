@@ -3,14 +3,13 @@
 ### Full-Stack Task Management Application (Angular + Flask)
 
 The **Bosch Task Manager** is a full-stack application built with
-**Angular** on the frontend and **Flask (Python)** on the backend.\
+**Angular** on the frontend and **Flask (Python)** on the backend.
 It allows authenticated users to manage their personal tasks in a
 simple, fast, and secure way, following clean architectural principles
 and Bosch-inspired UI styling.
 
 The system supports JWT authentication, full task CRUD, user-based
-access control, and a modular structure aligned with industry best
-practices.
+access control, and a modular structure.
 
 ------------------------------------------------------------------------
 
@@ -18,28 +17,28 @@ practices.
 
 ### Authentication
 
--   User registration\
--   Secure login with JWT\
--   Logout\
+-   User registration
+-   Secure login with JWT
+-   Logout
 -   Access restricted to each user's own tasks
 
 ### Task Management
 
--   Create new tasks\
--   List all tasks belonging to the logged-in user\
--   Edit tasks\
--   Mark tasks as completed / not completed\
--   Delete tasks\
+-   Create new tasks
+-   List all tasks belonging to the logged-in user
+-   Edit tasks
+-   Mark tasks as completed / not completed
+-   Delete tasks
 -   Responsive Angular UI with Bosch-themed styling
 
 ### Technical Architecture
 
--   REST API built with Flask\
--   ORM with SQLAlchemy\
--   JWT authentication layer\
--   Angular SPA with modular components\
--   Services, dependency injection, and routing\
--   CORS configuration\
+-   REST API built with Flask
+-   ORM with SQLAlchemy
+-   JWT authentication layer
+-   Angular SPA with modular components
+-   Services, dependency injection, and routing
+-   CORS configuration
 -   Scalable folder structure
 
 ------------------------------------------------------------------------
@@ -80,8 +79,8 @@ practices.
 
 -   Angular 18+
 -   TypeScript
--   Angular Material (optional)
--   Custom SCSS / Tailwind (Bosch style)
+-   Angular Material
+-   Custom SCSS / Tailwind
 
 ------------------------------------------------------------------------
 
@@ -89,14 +88,14 @@ practices.
 
 ### System Requirements
 
--   Node.js LTS\
--   Angular CLI\
+-   Node.js LTS
+-   Angular CLI
 
 ``` bash
 npm install -g @angular/cli
 ```
 
--   Python 3.10+\
+-   Python 3.10+
 -   pip + virtualenv
 
 ------------------------------------------------------------------------
@@ -214,7 +213,7 @@ CORS(app)
 
 ### Invalid or expired JWT
 
--   Token may be expired\
+-   Token may be expired
 -   Check `Authorization: Bearer <token>` header
 
 ### Database not created
@@ -237,9 +236,9 @@ apiUrl: 'http://localhost:500/api/health'
 
 ## 10. Author
 
-**Nuno Figueiredo**\
-Full-Stack Developer -- Angular & Python\
-GitHub: https://github.com/nunasf\
+**Nuno Figueiredo**
+Full-Stack Developer -- Angular & Python
+GitHub: https://github.com/nunasf
 LinkedIn: https://www.linkedin.com/in/nuno-andre-figueiredo/
 
 ------------------------------------------------------------------------
